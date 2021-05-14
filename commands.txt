@@ -1,11 +1,10 @@
-php artisan make:controller UsuarioController --resource
+php artisan make:controller CompetitionController --resource
 php artisan make:model fantasyleaguemodel
 php artisan --version
 php artisan storage:link
 
 php artisan make:seeder TeamSeeder
 php artisan db:seed --class=TeamSeeder
-
 
 php artisan make:migration create_table_fantasy_league --create=fantasy_league
 php artisan migrate
