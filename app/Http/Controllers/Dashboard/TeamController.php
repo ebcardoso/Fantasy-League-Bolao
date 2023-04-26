@@ -8,10 +8,9 @@ use App\Models\TeamModel;
 
 class TeamController extends Controller
 {
-    private $times;
-    public function __construct(TeamModel $times) {
-        //$this->middleware('auth');
-        $this->times = $times;
+    public function __construct(/*GameModel $games*/) {
+        $this->middleware('auth');
+        //$this->games = $games;
     }
 
     public function index()
@@ -19,14 +18,14 @@ class TeamController extends Controller
         $titulo = "ADM Times";
         $titulo_secao = "Times";
 
-        $times = $this->times->all();
+        $times = TeamModel::all();
 
         return view('dashboard/team/index', compact('titulo', 'titulo_secao', 'times'));
     }
 
     public function create()
     {
-        $titulo = "Dashboard Times";
+        $titulo = "ADM Times";
         $titulo_secao = "Cadastrar Novo Time";
 
         return view('dashboard/team/create_edit', compact('titulo', 'titulo_secao'));
@@ -51,7 +50,7 @@ class TeamController extends Controller
 
     public function show($id)
     {
-        $time = $this->times->find($id);
+        $time = TeamModel::find($id);
 
         if (is_null($time)) {
             return redirect()->route('team.index');
@@ -65,7 +64,7 @@ class TeamController extends Controller
 
     public function edit($id)
     {
-        $t = $this->times->find($id);
+        $t = TeamModel::find($id);
 
         if (is_null($t)) {
             return redirect()->route('team.index');
@@ -79,14 +78,14 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         //busca o time no BD
-        $time = $this->times->find($id);
+        $time = TeamModel::find($id);
         
         if (is_null($time)) {
             return redirect()->route('teams.index');
         } else {
             //editando no banco de dados
             $dataForm = $request->except(['_token', '_method']);
-            $update = $this->times::where('id', $id)->update($dataForm);
+            $update = TeamModel::where('id', $id)->update($dataForm);
             
             if ($update) {
                 return redirect()->route("team.index");
@@ -99,7 +98,7 @@ class TeamController extends Controller
     public function destroy($id)
     {
         //busca o time
-        $t = $this->times->find($id);
+        $t = TeamModel::find($id);
 
         if (is_null($t)) {
             return redirect()->route('team.index');
