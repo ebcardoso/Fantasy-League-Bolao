@@ -59,11 +59,11 @@
                                     <div class="form-group">
                                         <label>Ativo?:*</label>
                                         <select name="team_status"  class="form-control">
-                                            <option value="0" @if(isset($t) && $t->team_status == 0) selected @endif>
-                                                Não
-                                            </option>
                                             <option value="1" @if(isset($t) && $t->team_status == 1) selected @endif>
                                                 Sim
+                                            </option>
+                                            <option value="0" @if(isset($t) && $t->team_status == 0) selected @endif>
+                                                Não
                                             </option>
                                         </select>
                                     </div> <!-- form group -->

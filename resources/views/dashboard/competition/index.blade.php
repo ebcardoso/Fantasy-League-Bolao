@@ -23,43 +23,42 @@
                             <thead>
                                 <tr>
                                     <th>Campeonato</th>
-                                    <th>Tipo</th>
+                                    <!--th>Tipo</th-->
                                     <th>Em Andamento</th>
-                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($comps as $c)
                                     <tr class="odd gradeX"> 
-                                        <td> {{$c->name_comp}} </td>
-                                        <td> 
+                                        <td> <a href="{{route('competition.show', $c->id)}}"> {{$c->name_comp}} </a> </td>
+                                        <!--td> 
                                             <center>
-                                                @if(isset($c) && $c->type_comp == 1)
+                                                if(isset($c) && $c->type_comp == 1)
                                                     Estadual
-                                                @endif
-                                                @if(isset($c) && $c->type_comp == 2)
+                                                elseif(isset($c) && $c->type_comp == 2)
                                                     Regional
-                                                @endif
-                                                @if(isset($c) && $c->type_comp == 3)
+                                                elseif(isset($c) && $c->type_comp == 3)
                                                     Nacional
-                                                @endif
-                                                @if(isset($c) && $c->type_comp == 4)
+                                                elseif(isset($c) && $c->type_comp == 4)
                                                     Times-Internacional
-                                                @endif
-                                                @if(isset($c) && $c->type_comp == 5)
+                                                elseif(isset($c) && $c->type_comp == 5)
                                                     Seleções
-                                                @endif
+                                                else
+                                                    -
+                                                endif
                                             </center)
-                                        </td>
-                                        @if(isset($c) && $c->status_comp == 2)
-                                        <td> <center> <font color="red"> Finalizado </font> </center> </td>
-                                        @endif
-                                        @if(isset($c) && $c->status_comp == 1)
-                                        <td> <center> <font color="green"> Em Andamento </font> </center> </td>
-                                        @endif
+                                        </td-->
                                         <td>
                                             <center>
-                                                <a href="{{route('competition.show', $c->id)}}">Mostrar</a>
+                                                @if(isset($c) && $c->status_comp == 1) 
+                                                    <font color="green"> Em Andamento </font>
+                                                @elseif(isset($c) && $c->status_comp == 2)
+                                                    <font color="red"> Finalizado </font>
+                                                @elseif(isset($c) && $c->status_comp == 3)
+                                                    <font color="blue"> Futuro
+                                                @else
+                                                    -
+                                                @endif
                                             </center>
                                         </td>
                                     </tr>

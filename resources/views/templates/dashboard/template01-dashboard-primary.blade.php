@@ -10,8 +10,14 @@
     <meta name="author" content="">
 
     @yield('token_put')
-
-    <title>{{$titulo or 'Dashboard - Fantasy'}}</title>
+    
+    <title>
+    @if(isset($titulo))
+        {{$titulo}}
+    @else
+        352scores
+    @endif
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{url('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -65,6 +71,8 @@
     @yield('script_table')
 
     @yield('script_delete')
+
+    @yield('script_js')
 </body>
 
 </html>

@@ -73,6 +73,9 @@
                                     <div class="form-group">
                                         <label>Status?:*</label>
                                         <select name="status_comp"  class="form-control">
+                                            <option value="3" @if(isset($comp) && $comp->status_comp == 3) selected @endif>
+                                                Futuro
+                                            </option>
                                             <option value="1" @if(isset($comp) && $comp->status_comp == 1) selected @endif>
                                                 Em Andamento
                                             </option>

@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="{{route('competition.index')}}">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Mais</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="{{route('fantasy_league.index')}}">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Mais</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
